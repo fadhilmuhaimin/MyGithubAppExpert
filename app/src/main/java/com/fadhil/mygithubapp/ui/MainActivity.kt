@@ -6,6 +6,7 @@ import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -27,7 +28,6 @@ import com.fadhil.core.uiCore.SearchAdapter
 import com.fadhil.mygithubapp.R
 import com.fadhil.mygithubapp.Utils.SettingPreferences
 import com.fadhil.mygithubapp.databinding.ActivityMainBinding
-import com.fadhil.core.data.Result
 import com.fadhil.mygithubapp.ui.detail.DetailActivity
 import com.fadhil.mygithubapp.ui.setting.SettingActivity
 import com.fadhil.mygithubapp.ui.setting.SettingViewModel
@@ -75,7 +75,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.fab.setOnClickListener {
-            startActivity(Intent(this,LocalActivity::class.java))
+            val uri = Uri.parse("mygithubapp://favorite")
+            startActivity(Intent(Intent.ACTION_VIEW, uri))
         }
 
         binding.rvUser.apply {
@@ -85,8 +86,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         getQuery("fadhil")
-
-
 
 
     }
@@ -153,7 +152,9 @@ class MainActivity : AppCompatActivity() {
 
                     }
 
-                    is Resource.Empty -> TODO()
+                    is Resource.Empty -> {
+                        binding.progressBar.visibility = View.GONE
+                    }
                 }
             }
         }

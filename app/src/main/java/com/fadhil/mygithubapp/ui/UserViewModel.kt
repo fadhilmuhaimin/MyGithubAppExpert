@@ -19,10 +19,10 @@ class UserViewModel @Inject constructor(private val userRepository: UserReposito
 
     fun  listUser(user : String) = userRepository.searchUser(user)
 
-    fun getDetail(username : String) = userRepository.getDetailUser(username)
+    fun getDetail(username : String) = userRepository.getDetailUser(username).asLiveData()
 
-    fun getFollower(username: String ) = userRepository.getFollower(username )
-    fun getFollowing(username: String) = userRepository.getFollowing(username)
+    fun getFollower(username: String ) = userRepository.getFollower(username ).asLiveData()
+    fun getFollowing(username: String) = userRepository.getFollowing(username).asLiveData()
 
     fun insertFavorite(favoriteUser: FavoriteUser){
         viewModelScope.launch {
@@ -37,13 +37,13 @@ class UserViewModel @Inject constructor(private val userRepository: UserReposito
     }
 
     fun check(username: String) : LiveData<FavoriteUser>{
-       return userRepository.checkDatabase(username)
+       return userRepository.getFavoritebyUser(username).asLiveData()
     }
 
-    fun getfavorite() : LiveData<List<FavoriteUser>>{
-        return userRepository.getFavorite()
-    }
-
+//    fun getfavorite() : LiveData<List<FavoriteUser>>{
+//        return userRepository.getFavorite()
+//    }
+//
 
 
 

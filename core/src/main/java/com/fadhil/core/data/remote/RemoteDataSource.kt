@@ -3,6 +3,7 @@ package com.fadhil.core.data.remote
 import android.util.Log
 import com.fadhil.core.data.remote.network.ApiResponse
 import com.fadhil.core.data.remote.network.ApiService
+import com.fadhil.core.data.remote.response.DetailResponse
 import com.fadhil.core.data.remote.response.ItemsItem
 import com.fadhil.core.data.remote.response.SearchResponse
 
@@ -28,6 +29,61 @@ class RemoteDataSource @Inject constructor(private val apiService: ApiService) {
                     } else {
                         emit(ApiResponse.Empty)
                     }
+                }
+            } catch (e : Exception){
+                emit(ApiResponse.Error(e.toString()))
+                Log.e("RemoteDataSource", e.toString())
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun getFollowing(user: String) : Flow<ApiResponse<List<ItemsItem?>?>>{
+        return flow {
+            try {
+                val response = apiService.findFollowing(user)
+                val dataArray = response
+                if (dataArray != null) {
+                    if (dataArray.isNotEmpty()){
+                        emit(ApiResponse.Success(response))
+                    } else {
+                        emit(ApiResponse.Empty)
+                    }
+                }
+            } catch (e : Exception){
+                emit(ApiResponse.Error(e.toString()))
+                Log.e("RemoteDataSource", e.toString())
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun getFollower(user: String) : Flow<ApiResponse<List<ItemsItem?>?>>{
+        return flow {
+            try {
+                val response = apiService.findFollowers(user)
+                val dataArray = response
+                if (dataArray != null) {
+                    if (dataArray.isNotEmpty()){
+                        emit(ApiResponse.Success(response))
+                    } else {
+                        emit(ApiResponse.Empty)
+                    }
+                }
+            } catch (e : Exception){
+                emit(ApiResponse.Error(e.toString()))
+                Log.e("RemoteDataSource", e.toString())
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun getDetail(user: String) : Flow<ApiResponse<DetailResponse>>{
+        return flow {
+            try {
+                val response = apiService.findUserDetailByUsername(user)
+                val dataArray = response
+                if (dataArray != null) {
+                        emit(ApiResponse.Success(response))
+                }else {
+                    emit(ApiResponse.Empty)
                 }
             } catch (e : Exception){
                 emit(ApiResponse.Error(e.toString()))
