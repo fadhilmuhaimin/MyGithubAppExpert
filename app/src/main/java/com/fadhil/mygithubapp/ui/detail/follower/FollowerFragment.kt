@@ -51,7 +51,6 @@ class FollowerFragment : Fragment() {
         val username = arguments?.getString(ARG_SECTION_USERNAME, null)
         adapterSearch = SearchAdapter(false)
         if (position == 1) {
-            binding?.total?.text = position.toString()
             username?.let {
                 viewModel.getFollower(it).observe(viewLifecycleOwner) { result ->
                     when (result) {
@@ -72,10 +71,9 @@ class FollowerFragment : Fragment() {
                             binding?.progressBar?.visibility = View.VISIBLE
                         }
                         is Resource.Success -> {
-                            Log.d("datafollowing",result.data.toString())
+                            Log.d("datafollower",result.data.toString())
                             binding?.progressBar?.visibility = View.GONE
                             val data = result.data
-                            binding?.total?.text = "Total Following : ${data?.size}"
                             binding?.rvFollower?.apply {
                                 layoutManager = GridLayoutManager(requireContext(), 2)
                                 setHasFixedSize(true)
@@ -88,7 +86,6 @@ class FollowerFragment : Fragment() {
                 }
             }
         } else {
-            binding?.total?.text = position.toString()
             username?.let {
                 viewModel.getFollowing(it).observe(viewLifecycleOwner) { result ->
                     when (result) {
@@ -111,7 +108,6 @@ class FollowerFragment : Fragment() {
                             Log.d("datafollowing",result.data.toString())
                             binding?.progressBar?.visibility = View.GONE
                             val data = result.data
-                            binding?.total?.text = "Total Following : ${data?.size}"
                             binding?.rvFollower?.apply {
                                 layoutManager = GridLayoutManager(requireContext(), 2)
                                 setHasFixedSize(true)

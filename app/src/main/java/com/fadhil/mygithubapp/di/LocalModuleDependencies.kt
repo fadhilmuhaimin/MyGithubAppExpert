@@ -1,6 +1,7 @@
 package com.fadhil.mygithubapp.di
 
 import com.fadhil.core.data.UserRepository
+import com.fadhil.core.domain.usecase.UserUseCase
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
@@ -9,5 +10,5 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 interface LocalModuleDependencies {
 
-    fun tourismUseCase(): UserRepository
+    fun tourismUseCase(): UserUseCase
 }

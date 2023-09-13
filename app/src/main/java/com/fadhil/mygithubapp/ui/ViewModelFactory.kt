@@ -4,8 +4,9 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.fadhil.core.data.UserRepository
+import com.fadhil.core.domain.usecase.UserUseCase
 
-class ViewModelFactory private constructor(private val userRepository: UserRepository) :
+class ViewModelFactory private constructor(private val userRepository: UserUseCase) :
     ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")

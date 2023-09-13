@@ -16,11 +16,11 @@ interface FavoriteDao {
     fun getFavoriteUser() : Flow<List<FavoriteUser>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertFavorite(favoriteUser: FavoriteUser)
+    fun insertFavorite(favoriteUser: FavoriteUser)
 
 
     @Query("DELETE FROM favorite WHERE username =:username")
-    suspend fun delete(username: String)
+    fun delete(username: String)
 
 
 

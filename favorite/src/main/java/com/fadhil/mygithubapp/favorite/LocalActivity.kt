@@ -1,15 +1,18 @@
 package com.fadhil.mygithubapp.favorite
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.fadhil.core.data.remote.response.ItemsItem
+import com.fadhil.core.domain.model.ItemsSearch
 import com.fadhil.core.uiCore.SearchAdapter
 
 import com.fadhil.mygithubapp.databinding.ActivityLocalBinding
 import com.fadhil.mygithubapp.di.LocalModuleDependencies
 import com.fadhil.mygithubapp.ui.UserViewModel
+import com.fadhil.mygithubapp.ui.detail.DetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.EntryPointAccessors
 import javax.inject.Inject
@@ -48,6 +51,11 @@ class LocalActivity : AppCompatActivity() {
         }
 
         adapterSearch = SearchAdapter(true)
+        adapterSearch.onItemClick = {selectedData ->
+            startActivity(
+                Intent(this, DetailActivity::class.java)
+                .putExtra(DetailActivity.KEY_DETAIL,selectedData))
+        }
 
 
 
@@ -57,17 +65,10 @@ class LocalActivity : AppCompatActivity() {
             adapter = adapterSearch
         }
 
-        viewModel.getfavorite().observe(this){users  ->
-            val items = arrayListOf<ItemsItem>()
-            users.map {
-                val item = ItemsItem(login = it.username, avatarUrl = it.avatarUrl)
-                items.add(item)
-            }
-            adapterSearch.submitList(items)
+        viewModel.getfavorite()?.observe(this){users  ->
+
+            adapterSearch.submitList(users)
         }
-
-
-
 
         setContentView(binding.root)
     }

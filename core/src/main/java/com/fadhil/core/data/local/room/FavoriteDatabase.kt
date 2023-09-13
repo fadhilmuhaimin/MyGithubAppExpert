@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.fadhil.core.data.local.entity.FavoriteUser
 
 
-@Database(entities = [FavoriteUser::class], version = 2, exportSchema = false)
+@Database(entities = [FavoriteUser::class], version = 3, exportSchema = false)
 abstract class FavoriteDatabase : RoomDatabase() {
     abstract fun favoriteDao() : FavoriteDao
 

@@ -10,25 +10,25 @@ import retrofit2.http.Query
 
 interface ApiService {
     @GET("search/users")
-    @Headers("Authorization: token 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")
+    @Headers("Authorization: token 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")
     suspend fun searchUser(
         @Query("q") username: String
     ) : SearchResponse
 
     @GET("users/{username}")
-    @Headers("Authorization: token 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")
+    @Headers("Authorization: token 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")
     suspend fun findUserDetailByUsername(
         @Path("username") username: String
     ) : DetailResponse
 
     @GET("users/{username}/followers")
-    @Headers("Authorization: token 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")
+    @Headers("Authorization: token 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")
     suspend fun findFollowers(
         @Path("username") username: String
     ) : List<ItemsItem>
 
     @GET("users/{username}/following")
-    @Headers("Authorization: token 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")
+    @Headers("Authorization: token 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")
     suspend fun findFollowing(
         @Path("username") username: String
     ) :List<ItemsItem>

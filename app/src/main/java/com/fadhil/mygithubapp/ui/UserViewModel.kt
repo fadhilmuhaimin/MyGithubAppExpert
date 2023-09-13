@@ -6,12 +6,14 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.fadhil.core.data.UserRepository
 import com.fadhil.core.data.local.entity.FavoriteUser
+import com.fadhil.core.domain.model.ItemsSearch
+import com.fadhil.core.domain.usecase.UserUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class UserViewModel @Inject constructor(private val userRepository: UserRepository) : ViewModel() {
+class UserViewModel @Inject constructor(private val userRepository: UserUseCase) : ViewModel() {
 
 
 
@@ -24,20 +26,17 @@ class UserViewModel @Inject constructor(private val userRepository: UserReposito
     fun getFollower(username: String ) = userRepository.getFollower(username ).asLiveData()
     fun getFollowing(username: String) = userRepository.getFollowing(username).asLiveData()
 
-    fun insertFavorite(favoriteUser: FavoriteUser){
-        viewModelScope.launch {
-            userRepository.insertData(favoriteUser)
-        }
-    }
+    fun insertFavorite(favoriteUser: ItemsSearch) = userRepository.insertData(favoriteUser)
+
+
 
     fun delete(username: String){
-        viewModelScope.launch {
             userRepository.delete(username)
-        }
+
     }
 
-    fun check(username: String) : LiveData<FavoriteUser>{
-       return userRepository.getFavoritebyUser(username).asLiveData()
+    fun check(username: String) : LiveData<ItemsSearch?>?{
+       return userRepository.getFavoritebyUser(username)?.asLiveData()
     }
 
 //    fun getfavorite() : LiveData<List<FavoriteUser>>{

@@ -12,16 +12,17 @@ import com.bumptech.glide.request.RequestOptions
 import com.fadhil.core.R
 import com.fadhil.core.data.remote.response.ItemsItem
 import com.fadhil.core.databinding.ItemUserBinding
+import com.fadhil.core.domain.model.ItemsSearch
 
 
-class SearchAdapter(private val state : Boolean) : ListAdapter<ItemsItem, SearchAdapter.MyViewHolder>(
+class SearchAdapter(private val state : Boolean) : ListAdapter<ItemsSearch, SearchAdapter.MyViewHolder>(
     DIFF_CALLBACK
 ) {
 
-    var onItemClick: ((ItemsItem) -> Unit)? = null
+    var onItemClick: ((ItemsSearch) -> Unit)? = null
 
     class MyViewHolder(val binding : ItemUserBinding) : RecyclerView.ViewHolder(binding.root){
-        fun bind(item: ItemsItem, state: Boolean, onItemClick: ((ItemsItem) -> Unit)?){
+        fun bind(item: ItemsSearch, state: Boolean, onItemClick: ((ItemsSearch) -> Unit)?){
 
             if (state){
                 binding.root.setOnClickListener {
@@ -45,14 +46,14 @@ class SearchAdapter(private val state : Boolean) : ListAdapter<ItemsItem, Search
 
 
     companion object {
-        val DIFF_CALLBACK: DiffUtil.ItemCallback<ItemsItem> =
-            object : DiffUtil.ItemCallback<ItemsItem>() {
-                override fun areItemsTheSame(oldUser: ItemsItem, newUser: ItemsItem): Boolean {
+        val DIFF_CALLBACK: DiffUtil.ItemCallback<ItemsSearch> =
+            object : DiffUtil.ItemCallback<ItemsSearch>() {
+                override fun areItemsTheSame(oldUser: ItemsSearch, newUser: ItemsSearch): Boolean {
                     return oldUser.id == newUser.id
                 }
 
                 @SuppressLint("DiffUtilEquals")
-                override fun areContentsTheSame(oldUser: ItemsItem, newUser: ItemsItem): Boolean {
+                override fun areContentsTheSame(oldUser: ItemsSearch, newUser: ItemsSearch): Boolean {
                     return oldUser == newUser
                 }
             }

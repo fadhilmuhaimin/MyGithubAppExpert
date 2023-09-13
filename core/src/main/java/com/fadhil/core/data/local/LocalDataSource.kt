@@ -15,6 +15,14 @@ class LocalDataSource @Inject constructor(private val userDao: FavoriteDao) {
 
     fun getFavoritebyUser(user : String) : Flow<FavoriteUser> = userDao.getFavoriteUserByUsername(user)
 
+    fun setFavorite(user : FavoriteUser){
+        userDao.insertFavorite(user)
+    }
+
+    fun delete(username : String){
+        userDao.delete(username)
+    }
+
 
 
 }
