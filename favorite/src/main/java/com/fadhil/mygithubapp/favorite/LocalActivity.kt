@@ -1,19 +1,14 @@
 package com.fadhil.mygithubapp.favorite
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import com.fadhil.core.data.remote.response.ItemsItem
-import com.fadhil.core.domain.model.ItemsSearch
 import com.fadhil.core.uiCore.SearchAdapter
-
 import com.fadhil.mygithubapp.databinding.ActivityLocalBinding
 import com.fadhil.mygithubapp.di.LocalModuleDependencies
-import com.fadhil.mygithubapp.ui.UserViewModel
 import com.fadhil.mygithubapp.ui.detail.DetailActivity
-import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.EntryPointAccessors
 import javax.inject.Inject
 
@@ -66,7 +61,6 @@ class LocalActivity : AppCompatActivity() {
         }
 
         viewModel.getfavorite()?.observe(this){users  ->
-
             adapterSearch.submitList(users)
         }
 
