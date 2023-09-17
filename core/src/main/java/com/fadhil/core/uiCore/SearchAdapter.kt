@@ -3,14 +3,12 @@ package com.fadhil.core.uiCore
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.fadhil.core.R
-import com.fadhil.core.data.remote.response.ItemsItem
 import com.fadhil.core.databinding.ItemUserBinding
 import com.fadhil.core.domain.model.ItemsSearch
 

@@ -3,13 +3,9 @@ package com.fadhil.mygithubapp.ui
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import androidx.lifecycle.viewModelScope
-import com.fadhil.core.data.UserRepository
-import com.fadhil.core.data.local.entity.FavoriteUser
 import com.fadhil.core.domain.model.ItemsSearch
 import com.fadhil.core.domain.usecase.UserUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel

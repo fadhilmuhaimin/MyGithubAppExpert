@@ -2,12 +2,12 @@ package com.fadhil.mygithubapp.start
 
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.fadhil.mygithubapp.ui.MainActivity
 import com.fadhil.mygithubapp.databinding.ActivitySplashBinding
+import com.fadhil.mygithubapp.ui.MainActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

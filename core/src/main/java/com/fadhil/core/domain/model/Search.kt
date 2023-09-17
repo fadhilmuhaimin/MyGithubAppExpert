@@ -1,10 +1,7 @@
 package com.fadhil.core.domain.model
 
 import android.os.Parcelable
-import com.fadhil.core.data.remote.response.ItemsItem
-import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
-
 
 
 @Parcelize

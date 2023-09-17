@@ -5,8 +5,6 @@ import com.fadhil.core.data.remote.network.ApiResponse
 import com.fadhil.core.data.remote.network.ApiService
 import com.fadhil.core.data.remote.response.DetailResponse
 import com.fadhil.core.data.remote.response.ItemsItem
-import com.fadhil.core.data.remote.response.SearchResponse
-
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

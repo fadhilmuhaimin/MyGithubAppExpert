@@ -1,6 +1,5 @@
 package com.fadhil.mygithubapp.di
 
-import com.fadhil.core.data.UserRepository
 import com.fadhil.core.domain.usecase.UserUseCase
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn

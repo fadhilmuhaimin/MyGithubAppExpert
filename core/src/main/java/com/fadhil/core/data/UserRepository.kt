@@ -1,17 +1,12 @@
 package com.fadhil.core.data
 
-import androidx.lifecycle.*
 import com.fadhil.core.Utils.AppExecutors
 import com.fadhil.core.Utils.DataMapper
 import com.fadhil.core.data.local.LocalDataSource
-import com.fadhil.core.data.local.entity.FavoriteUser
 import com.fadhil.core.data.local.room.FavoriteDao
 import com.fadhil.core.data.remote.RemoteDataSource
 import com.fadhil.core.data.remote.network.ApiResponse
 import com.fadhil.core.data.remote.response.ItemsItem
-import com.fadhil.core.data.remote.response.DetailResponse
-import com.fadhil.core.data.remote.network.ApiService
-import com.fadhil.core.data.remote.response.SearchResponse
 import com.fadhil.core.domain.model.Detail
 import com.fadhil.core.domain.model.ItemsSearch
 import com.fadhil.core.domain.repository.IUserRepository

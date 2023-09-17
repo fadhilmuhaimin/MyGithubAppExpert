@@ -1,6 +1,5 @@
 package com.fadhil.core.data.local.room
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.fadhil.core.data.local.entity.FavoriteUser
 import kotlinx.coroutines.flow.Flow

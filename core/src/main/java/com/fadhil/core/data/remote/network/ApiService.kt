@@ -1,8 +1,8 @@
 package com.fadhil.core.data.remote.network
 
+import com.fadhil.core.data.remote.response.DetailResponse
 import com.fadhil.core.data.remote.response.ItemsItem
 import com.fadhil.core.data.remote.response.SearchResponse
-import com.fadhil.core.data.remote.response.DetailResponse
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path

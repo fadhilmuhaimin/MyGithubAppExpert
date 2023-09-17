@@ -1,8 +1,6 @@
 package com.fadhil.core.domain.usecase
 
 import com.fadhil.core.data.Resource
-import com.fadhil.core.data.local.entity.FavoriteUser
-import com.fadhil.core.data.remote.response.ItemsItem
 import com.fadhil.core.domain.model.Detail
 import com.fadhil.core.domain.model.ItemsSearch
 import kotlinx.coroutines.flow.Flow
