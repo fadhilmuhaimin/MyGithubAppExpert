@@ -46,5 +46,6 @@ class NetworkModule {
             .client(client)
             .build()
         return retrofit.create(ApiService::class.java)
+
     }
 }
