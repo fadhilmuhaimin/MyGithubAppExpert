@@ -37,7 +37,7 @@ dependencies {
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
     kapt "androidx.hilt:hilt-compiler:$hilt_jetpack_version"
 
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_version"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
 
     kaptAndroidTest "androidx.hilt:hilt-compiler:$hilt_jetpack_version"
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
